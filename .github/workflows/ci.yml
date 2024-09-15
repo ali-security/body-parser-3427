@@ -166,6 +166,10 @@ jobs:
     - name: Install Node.js dependencies
       run: npm install
 
+    - name: Install npm module(s) ${{ matrix.npm-i }}
+      run: npm install --save-dev ${{ matrix.npm-i }}
+      if: matrix.npm-i != ''
+
     - name: List environment
       id: list_env
       shell: bash
